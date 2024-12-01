@@ -19,6 +19,7 @@ int main() {
     // tree.insertNode(9);
     
     cout << "Done.\n";
+    tree.displayPreOrder();
 
     return 0;
 }
