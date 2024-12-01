@@ -1,5 +1,6 @@
 // Implementation file for the IntBinaryTree class
 #include <iostream>
+#include <string>
 #include "IntBinaryTree.h"
 using namespace std;
 
@@ -67,7 +68,7 @@ void IntBinaryTree::remove(string num) {
 
 // deleteNode deletes the node whose value 
 // member is the same as num.              
-void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr) {
+void IntBinaryTree::deleteNode(string num, TreeNode *&nodePtr) {
    if (num < nodePtr->value)
       deleteNode(num, nodePtr->left);
    else if (num > nodePtr->value)
