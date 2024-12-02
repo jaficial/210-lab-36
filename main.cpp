@@ -26,10 +26,11 @@ void menu_display(){
     cout << "[6] Finish BST" << endl;
 }
 
-/* If "[5] Display Binary Search Tree" is chosen, the user is able
-   to select from a dropdown menu, outputted from "tree_display_choice()"
-   
-
+/* If "[5] Display Binary Search Tree" is chosen from the menu display, 
+   the user is able to select from a dropdown menu, outputted from 
+   "tree_display_choice()". This function displays a list of options
+   the user is able to choose from for displaying the graph inorder, 
+   preorder, or postorder.
 */ 
 void tree_display_choice(){
     cout << setw(16) << "" << "Display Choices" << endl;
@@ -51,14 +52,21 @@ int main() {
 
     while (menu_selection != 6){
         cin >> menu_selection;
+        // if 1, a line of text is taken from the "codes.txt" file, and inserted into the BST.
         if (menu_selection == 1){
-            cin.ignore();
-            getline(fin, temp_dataset_line);
-            tree.insertNode(temp_dataset_line);
-            cout << endl;
-            menu_display();
+            if (fin.eof()){
+                cout << "There is no available lines of data from the data set that can be used. Please choose option 4 to add new data to the BST." << endl << endl;
+            }
+            else {
+                cin.ignore();
+                getline(fin, temp_dataset_line);
+                tree.insertNode(temp_dataset_line);
+                cout << endl;
+                menu_display();
+            }
         }
         
+        // if 2, the user inputs the string that they would like removed from the BST.
         if (menu_selection == 2){
             cin.ignore();
             cout << endl << "Please enter the line of data you would like to delete:" << endl;
@@ -74,6 +82,7 @@ int main() {
             menu_display();
         }
 
+        // If 3, the user inputs the string they would like to search for in the BST. 
         if (menu_selection == 3){
             cin.ignore();
             cout << endl << "Please enter the line of data you would like to search for:" << endl;
@@ -89,6 +98,7 @@ int main() {
             menu_display();
         }
 
+        // If 4, the user is able to input their own line of data that they would like to append to the BST.
         if (menu_selection == 4){
             cin.ignore();
             cout << endl << "Please enter a line of data that you would like to add to the BST:" << endl;
@@ -97,7 +107,8 @@ int main() {
             tree.insertNode(temp_dataset_line);
             menu_display();
         }
-
+        
+        // If 5, the user chooses which way (inorder, preorder, postorder), they would like to display the BST.
         if (menu_selection == 5){
             cout << endl << "How would you like to display the Binary Search Tree?" << endl;
             tree_display_choice();
