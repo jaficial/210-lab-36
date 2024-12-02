@@ -1,3 +1,5 @@
+// COMSC-210 | Jed Aficial | Lab 36
+// github link: https://github.com/jaficial/210-lab-36
 // Specification file for the IntBinaryTree class
 #ifndef INTBINARYTREE_H
 #define INTBINARYTREE_H

@@ -33,7 +33,7 @@ void menu_display(){
    preorder, or postorder.
 */ 
 void tree_display_choice(){
-    cout << setw(16) << "" << "Display Choices" << endl;
+    cout << setw(14) << "" << "Display Choices" << endl;
     cout << "-------------------------------------------" << endl;
     cout << "[1] Display Inorder" << endl;
     cout << "[2] Display Preorder" << endl;
