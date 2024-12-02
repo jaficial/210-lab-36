@@ -1,11 +1,24 @@
+// COMSC-210 | Jed Aficial | Lab 36
+// github link: https://github.com/jaficial/210-lab-36
+
 #include <iostream>
 #include <string>
 #include "IntBinaryTree.h"
+#include <iomanip>
 using namespace std;
 
+void menu_display();
+
+void menu_display(){
+    cout << setw(12) << "" << "Records BST" << endl;
+    cout << "[1] Add a Node" << endl;
+    cout << "[2] Delete a Node" << endl;
+    cout << "[3] Search for a Node" << endl;
+    cout << "[4] Modify Records" << endl;
+}
 int main() {
-    // NEED TO DO: Modify header and IntBinaryTree.cpp files to process strings instead of integers
-    // then write driver file in main to populate a BST with dataset file 
+    // header and IntBinaryTree.cpp files now accept strings as values for the nodes 
+    // NEED TO DO: then write driver file in main to populate a BST with dataset file 
     // add interactive menu-driven functionality to add, delete, search, and modify records
     IntBinaryTree tree;
     
@@ -22,6 +35,8 @@ int main() {
     tree.insertNode(temp2);
     cout << "Added test2 back in: " << endl;
     tree.searchNode(temp2);
+    menu_display();
+
     
 
     return 0;
