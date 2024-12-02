@@ -11,6 +11,10 @@ using namespace std;
 void menu_display();
 void tree_display_choice();
 
+/* menu_display() displays a dropdown menu of options that the user 
+   is able to choose from, that performs actions pertaining to the 
+   Binary Search Tree. 
+*/
 void menu_display(){
     cout << setw(16) << "" << "Records BST" << endl;
     cout << "-------------------------------------------" << endl;
@@ -22,6 +26,11 @@ void menu_display(){
     cout << "[6] Finish BST" << endl;
 }
 
+/* If "[5] Display Binary Search Tree" is chosen, the user is able
+   to select from a dropdown menu, outputted from "tree_display_choice()"
+   
+
+*/ 
 void tree_display_choice(){
     cout << setw(16) << "" << "Display Choices" << endl;
     cout << "-------------------------------------------" << endl;
@@ -31,9 +40,7 @@ void tree_display_choice(){
 }
 
 int main() {
-    // header and IntBinaryTree.cpp files now accept strings as values for the nodes 
-    // NEED TO DO: then write driver file in main to populate a BST with dataset file 
-    // add interactive menu-driven functionality to add, delete, search, and modify records
+
     IntBinaryTree tree;
     ifstream fin("codes.txt");
     string temp_dataset_line;
@@ -121,7 +128,7 @@ int main() {
             menu_display();
         }       
     }  
-    
+
     fin.close();
     return 0;
 }

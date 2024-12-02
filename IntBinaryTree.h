@@ -3,7 +3,13 @@
 #define INTBINARYTREE_H
 #include <string>
 using namespace std;
-// The IntBinaryTree class manages a binary tree of integers.
+
+/* NOTE: As mentioned in the "IntBinaryTree.cpp" file, all instances of the int type has been
+         replaced with the string type, and/or the two files have been editted to accept the 
+         string type for the dataset for each node. 
+*/
+
+// The IntBinaryTree class manages a binary tree of strings.
 class IntBinaryTree {
 private:
    // TreeNode is a private structure for IntBinaryTree nodes.
@@ -12,7 +18,7 @@ private:
       TreeNode *left;    // Pointer to left child node
       TreeNode *right;   // Pointer to right child node
    };
-//
+
    // root points to the topmost node of the tree.
    TreeNode *root;      
 

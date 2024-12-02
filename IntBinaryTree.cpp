@@ -1,8 +1,16 @@
+// COMSC-210 | Jed Aficial | Lab 36
+// github link: https://github.com/jaficial/210-lab-36
+
 // Implementation file for the IntBinaryTree class
 #include <iostream>
 #include <string>
 #include "IntBinaryTree.h"
 using namespace std;
+
+/*NOTE: All instances of num within this file as well as the file's header file
+        has had its type changed from int to string.
+        IntBinaryTree now accepts a string for its node instead of an int 
+*/
 
 // insert accepts a TreeNode pointer and a pointer to a node.
 // The function inserts the node into the tree pointed to by 
