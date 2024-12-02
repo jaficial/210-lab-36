@@ -40,10 +40,9 @@ int main() {
 
     int menu_selection = 0;
     int tree_display_selection = 0;
-
+    menu_display();
     while (menu_selection != 6){
         cin >> menu_selection;
-        menu_display();
         if (menu_selection == 1){
             cin.ignore();
             getline(fin, temp_dataset_line);
@@ -52,14 +51,29 @@ int main() {
         
         if (menu_selection == 2){
             cin.ignore();
+            cout << "Please enter the line of data you would like to delete:" << endl;
             getline(cin, temp_dataset_line);
-            tree.remove(temp_dataset_line);
+            bool search_result = tree.searchNode(temp_dataset_line);
+            if (search_result == true){
+                tree.remove(temp_dataset_line);
+            }
+            else {
+                cout << "The line of data that you inputted, was not found in the tree." << endl;
+            }
         }
 
         if (menu_selection == 3){
             cin.ignore();
+            cout << "Please enter the line of data you would like to search for:" << endl;
             getline(cin, temp_dataset_line);
-            tree.searchNode(temp_dataset_line);
+            bool search_result = tree.searchNode(temp_dataset_line);
+            if (search_result == true){
+                cout << "The line of data is in the BST." << endl;
+            }
+
+            else{
+                cout << "The line of data is not in the BST." << endl;
+            }
         }
 
         if (menu_selection == 4){
@@ -71,14 +85,17 @@ int main() {
             tree_display_choice();
             cin >> tree_display_selection;
             if (tree_display_selection == 1){
+                cout << endl;
                 tree.displayInOrder();
             }
 
             if (tree_display_selection == 2){
+                cout << endl;
                 tree.displayPreOrder();
             }
 
             if (tree_display_selection == 3){
+                cout << endl;
                 tree.displayPostOrder();
             }
 
@@ -90,6 +107,8 @@ int main() {
         if ((menu_selection < 1) || (menu_selection > 6)){
             cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
         }
+
+        menu_display();
     }  
 
     tree.displayInOrder();
