@@ -25,6 +25,9 @@ void menu_display(){
 void tree_display_choice(){
     cout << setw(16) << "" << "Display Choices" << endl;
     cout << "-------------------------------------------" << endl;
+    cout << "[1] Display Inorder" << endl;
+    cout << "[2] Display Preorder" << endl;
+    cout << "[3] Display Postorder" << endl;
 }
 
 int main() {
@@ -36,6 +39,7 @@ int main() {
     string temp_dataset_line;
 
     int menu_selection = 0;
+    int tree_display_selection = 0;
 
     while (menu_selection != 6){
         cin >> menu_selection;
@@ -47,20 +51,40 @@ int main() {
         }
         
         if (menu_selection == 2){
-            
+            cin.ignore();
+            getline(cin, temp_dataset_line);
+            tree.remove(temp_dataset_line);
         }
 
         if (menu_selection == 3){
-
+            cin.ignore();
+            getline(cin, temp_dataset_line);
+            tree.searchNode(temp_dataset_line);
         }
 
         if (menu_selection == 4){
-
+            
         }
 
         if (menu_selection == 5){
             cout << "How would you like to display the Binary Search Tree?" << endl;
-            cout << 
+            tree_display_choice();
+            cin >> tree_display_selection;
+            if (tree_display_selection == 1){
+                tree.displayInOrder();
+            }
+
+            if (tree_display_selection == 2){
+                tree.displayPreOrder();
+            }
+
+            if (tree_display_selection == 3){
+                tree.displayPostOrder();
+            }
+
+            if ((tree_display_selection < 1) || (tree_display_selection > 3)){
+                cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
+            }
         }
 
         if ((menu_selection < 1) || (menu_selection > 6)){
