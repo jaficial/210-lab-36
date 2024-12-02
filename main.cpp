@@ -51,33 +51,36 @@ int main() {
         
         if (menu_selection == 2){
             cin.ignore();
-            cout << "Please enter the line of data you would like to delete:" << endl;
+            cout << endl << "Please enter the line of data you would like to delete:" << endl;
             getline(cin, temp_dataset_line);
             bool search_result = tree.searchNode(temp_dataset_line);
             if (search_result == true){
                 tree.remove(temp_dataset_line);
             }
             else {
-                cout << "The line of data that you inputted, was not found in the tree." << endl;
+                cout << temp_dataset_line << " was not found in the tree." << endl << endl;
             }
         }
 
         if (menu_selection == 3){
             cin.ignore();
-            cout << "Please enter the line of data you would like to search for:" << endl;
+            cout << endl << "Please enter the line of data you would like to search for:" << endl;
             getline(cin, temp_dataset_line);
             bool search_result = tree.searchNode(temp_dataset_line);
             if (search_result == true){
-                cout << "The line of data is in the BST." << endl;
+                cout << temp_dataset_line << " is in the BST." << endl << endl;
             }
 
             else{
-                cout << "The line of data is not in the BST." << endl;
+                cout << temp_dataset_line << " is not in the BST." << endl << endl;
             }
         }
 
         if (menu_selection == 4){
-            
+            cin.ignore();
+            cout << "Please enter a line of data that you would like to add to the BST:" << endl;
+            getline(cin, temp_dataset_line);
+            tree.insertNode(temp_dataset_line);
         }
 
         if (menu_selection == 5){
@@ -107,13 +110,8 @@ int main() {
         if ((menu_selection < 1) || (menu_selection > 6)){
             cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
         }
-
         menu_display();
     }  
-
-    tree.displayInOrder();
-    tree.displayPostOrder();
-    tree.displayPreOrder();
 
     fin.close();
     return 0;
