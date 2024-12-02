@@ -41,12 +41,15 @@ int main() {
     int menu_selection = 0;
     int tree_display_selection = 0;
     menu_display();
+
     while (menu_selection != 6){
         cin >> menu_selection;
         if (menu_selection == 1){
             cin.ignore();
             getline(fin, temp_dataset_line);
             tree.insertNode(temp_dataset_line);
+            cout << endl;
+            menu_display();
         }
         
         if (menu_selection == 2){
@@ -56,10 +59,12 @@ int main() {
             bool search_result = tree.searchNode(temp_dataset_line);
             if (search_result == true){
                 tree.remove(temp_dataset_line);
+                cout << temp_dataset_line << " has been removed from the tree." << endl << endl;
             }
             else {
                 cout << temp_dataset_line << " was not found in the tree." << endl << endl;
             }
+            menu_display();
         }
 
         if (menu_selection == 3){
@@ -74,17 +79,20 @@ int main() {
             else{
                 cout << temp_dataset_line << " is not in the BST." << endl << endl;
             }
+            menu_display();
         }
 
         if (menu_selection == 4){
             cin.ignore();
-            cout << "Please enter a line of data that you would like to add to the BST:" << endl;
+            cout << endl << "Please enter a line of data that you would like to add to the BST:" << endl;
             getline(cin, temp_dataset_line);
+            cout << endl;
             tree.insertNode(temp_dataset_line);
+            menu_display();
         }
 
         if (menu_selection == 5){
-            cout << "How would you like to display the Binary Search Tree?" << endl;
+            cout << endl << "How would you like to display the Binary Search Tree?" << endl;
             tree_display_choice();
             cin >> tree_display_selection;
             if (tree_display_selection == 1){
@@ -103,16 +111,17 @@ int main() {
             }
 
             if ((tree_display_selection < 1) || (tree_display_selection > 3)){
-                cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
+                cout << endl << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
             }
+            menu_display();
         }
 
         if ((menu_selection < 1) || (menu_selection > 6)){
-            cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl;
-        }
-        menu_display();
+            cout << "Invalid selection. Please enter a valid number from the provided dropdown menu." << endl << endl;
+            menu_display();
+        }       
     }  
-
+    
     fin.close();
     return 0;
 }
